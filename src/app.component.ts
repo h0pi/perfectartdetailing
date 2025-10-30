@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import {Component, ChangeDetectionStrategy, signal, OnInit, AfterViewInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Service {
@@ -19,8 +19,8 @@ interface GalleryImage {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
 })
-export class AppComponent {
-  readonly videoSrc = signal<string | null>(null);
+export class AppComponent implements AfterViewInit {
+  readonly videoSrc = 'assets/videos/video.mp4';
 
   readonly services = signal<Service[]>([
     {
@@ -57,21 +57,14 @@ export class AppComponent {
       element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
   }
-
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      if (file.type.startsWith('video/')) {
-        const currentSrc = this.videoSrc();
-        if (currentSrc) {
-          URL.revokeObjectURL(currentSrc);
+    ngAfterViewInit(): void {
+        const video = document.querySelector('video');
+        if (video instanceof HTMLVideoElement) {
+            video.muted = true;       // garantuje da je bez zvuka
+            video.volume = 0;         // dodatno spusti glasnoću
+            video.play().catch(err => console.warn('Autoplay prevented:', err));
+            video.addEventListener('ended', () => video.play()); // loop fallback
         }
-        const newSrc = URL.createObjectURL(file);
-        this.videoSrc.set(newSrc);
-      } else {
-        alert('Please select a valid video file.');
-      }
-    }
-  }
+
+}
 }

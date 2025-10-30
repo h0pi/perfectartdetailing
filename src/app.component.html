@@ -1,58 +1,75 @@
-<div class="min-h-screen bg-slate-900">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-lg shadow-lg shadow-slate-900/50">
-    <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative">
-      <div class="text-2xl font-bold text-white tracking-wider">
-        <span class="text-amber-400">Perfect</span>Art<span class="text-slate-400">Detailing</span>
-      </div>
-      <div class="hidden md:flex space-x-8 absolute left-1/2 -translate-x-1/2">
-        <a (click)="scrollTo('home')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Home</a>
-        <a (click)="scrollTo('services')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Services</a>
-        <a (click)="scrollTo('gallery')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Gallery</a>
-        <a (click)="scrollTo('contact')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Contact</a>
-      </div>
-      <div class="hidden md:block">
-        <a href="https://www.instagram.com/perfectartdetailing/" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-amber-400 transition-colors duration-300" aria-label="Instagram">
-          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266.058 1.644.07 4.85.07m0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path>
-          </svg>
-        </a>
-      </div>
-    </nav>
-  </header>
+<!--<div class="min-h-screen bg-slate-900">-->
+<!--  &lt;!&ndash; Header &ndash;&gt;-->
+<!--  <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-lg shadow-lg shadow-slate-900/50">-->
+<!--    <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative">-->
+<!--      <div class="text-2xl font-bold text-white tracking-wider">-->
+<!--        <span class="text-amber-400">Perfect</span>Art<span class="text-slate-400">Detailing</span>-->
+<!--      </div>-->
+<!--      <div class="hidden md:flex space-x-8 absolute left-1/2 -translate-x-1/2">-->
+<!--        <a (click)="scrollTo('home')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Home</a>-->
+<!--        <a (click)="scrollTo('services')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Services</a>-->
+<!--        <a (click)="scrollTo('gallery')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Gallery</a>-->
+<!--        <a (click)="scrollTo('contact')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Contact</a>-->
+<!--      </div>-->
+<!--      <div class="hidden md:block">-->
+<!--        <a href="https://www.instagram.com/perfectartdetailing/" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-amber-400 transition-colors duration-300" aria-label="Instagram">-->
+<!--          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">-->
+<!--            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266.058 1.644.07 4.85.07m0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path>-->
+<!--          </svg>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </nav>-->
+<!--  </header>-->
 
   <main>
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center text-center bg-slate-900 overflow-hidden">
-      <!-- Background: Video or Image -->
-      @if (videoSrc()) {
-        <video [src]="videoSrc()" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0"></video>
-      } @else {
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style="background-image: url('https://picsum.photos/seed/hero-car/1920/1080');"></div>
-      }
-      
-      <!-- Overlay -->
-      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="min-h-screen bg-slate-900">
+          <!-- Header -->
+          <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-lg shadow-lg shadow-slate-900/50">
+              <nav class="container mx-auto px-6 py-3 flex justify-between items-center relative">
+                  <div class="text-2xl font-bold text-white tracking-wider">
+                      <span class="text-amber-400">Perfect</span>Art<span class="text-slate-400">Detailing</span>
+                  </div>
+                  <div class="hidden md:flex space-x-8 absolute left-1/2 -translate-x-1/2">
+                      <a (click)="scrollTo('home')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Home</a>
+                      <a (click)="scrollTo('services')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Services</a>
+                      <a (click)="scrollTo('gallery')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Gallery</a>
+                      <a (click)="scrollTo('contact')" class="cursor-pointer text-slate-300 hover:text-amber-400 transition-colors duration-300">Contact</a>
+                  </div>
+                  <div class="hidden md:block">
+                      <a href="https://www.instagram.com/perfectartdetailing/" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-amber-400 transition-colors duration-300" aria-label="Instagram">
+                          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266.058 1.644.07 4.85.07m0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path>
+                          </svg>
+                      </a>
+                  </div>
+              </nav>
+          </header>
 
-      <!-- Content -->
-      <div class="relative z-10 p-6">
-        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
-          Experience Automotive <span class="text-amber-400">Perfection</span>
-        </h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-          We transform your vehicle with meticulous attention to detail, restoring its beauty inside and out.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button (click)="scrollTo('services')" class="bg-amber-500 text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
-            Explore Our Services
-          </button>
-          <input type="file" #videoInput hidden accept="video/*" (change)="onFileSelected($event)">
-          <button (click)="videoInput.click()" class="bg-transparent border-2 border-slate-400 text-slate-300 font-bold py-3 px-8 rounded-full hover:bg-slate-700 hover:border-slate-300 transition-all duration-300 transform hover:scale-105">
-            Upload Background Video
-          </button>
-        </div>
-      </div>
-    </section>
+          <main>
+              <!-- Hero Section -->
+              <section id="home" class="relative min-h-screen flex items-center justify-center text-center bg-slate-900 overflow-hidden">
+                  <!-- Background: Video -->
+                  <video src="assets/videos/video.mp4" autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover z-0"></video>
+
+                  <!-- Overlay -->
+                  <div class="absolute inset-0 bg-black/60"></div>
+
+                  <!-- Content -->
+                  <div class="relative z-10 p-6">
+                      <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                          Experience Automotive <span class="text-amber-400">Perfection</span>
+                      </h1>
+                      <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+                          We transform your vehicle with meticulous attention to detail, restoring its beauty inside and out.
+                      </p>
+                      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                          <button (click)="scrollTo('services')" class="bg-amber-500 text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                              Explore Our Services
+                          </button>
+                      </div>
+                  </div>
+              </section>
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-slate-900">
