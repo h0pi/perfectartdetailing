@@ -118,6 +118,49 @@
       </div>
     </section>
 
+              <section id="pricing" class="py-20 bg-slate-900">
+                  <div class="container mx-auto px-6">
+                      <div class="text-center mb-12">
+                          <h2 class="text-3xl md:text-4xl font-bold text-white">Our Detailed Price List</h2>
+                          <p class="text-slate-400 mt-2">Transparent pricing for premium services. Click to view.</p>
+                          <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 rounded"></div>
+                      </div>
+
+                      <div class="text-center">
+                          <button (click)="showPriceList.set(!showPriceList())" class="bg-amber-500 text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                              @if (showPriceList()) {
+                                  <span>Hide Full Price List</span>
+                              } @else {
+                                  <span>View Full Price List</span>
+                              }
+                          </button>
+                      </div>
+
+                      @if (showPriceList()) {
+                          <div class="mt-12 max-w-4xl mx-auto text-left bg-slate-800/50 p-6 sm:p-8 rounded-lg shadow-2xl border border-slate-700">
+                              @for (category of priceList(); track category.title) {
+                                  <div class="mb-10">
+                                      <h3 class="text-2xl font-semibold text-amber-400 mb-4 border-b-2 border-slate-700 pb-2">{{ category.title }}</h3>
+                                      <ul class="space-y-4">
+                                          @for (item of category.items; track item.name) {
+                                              <li class="flex flex-col sm:flex-row justify-between sm:items-start p-4 bg-slate-800 rounded-md shadow-md">
+                                                  <div class="flex-1 pr-4">
+                                                      <p class="font-semibold text-white">{{ item.name }}</p>
+                                                      @if (item.description) {
+                                                          <p class="text-sm text-slate-400 italic">{{ item.description }}</p>
+                                                      }
+                                                  </div>
+                                                  <p class="text-amber-400 font-medium text-left sm:text-right mt-2 sm:mt-0 whitespace-nowrap">{{ item.price }}</p>
+                                              </li>
+                                          }
+                                      </ul>
+                                  </div>
+                              }
+                          </div>
+                      }
+                  </div>
+              </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-slate-900">
       <div class="container mx-auto px-6">
