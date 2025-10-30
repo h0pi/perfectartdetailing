@@ -12,11 +12,13 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "./",
-            "browser": "main.ts",
+            "outputPath": "docs",
             "index": "index.html",
+            "browser": "main.ts",
+
             "tsConfig": "tsconfig.json",
             "assets": [
+
               "src/assets"
             ]
           },
